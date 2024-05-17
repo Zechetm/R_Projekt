@@ -1,0 +1,18 @@
+{
+    "args": [
+        "-std=gnu++14",
+        "-IC:/PROGRA~1/R/R-42~1.3/include",
+        "-DNDEBUG",
+        "-IC:/Users/olekw/AppData/Local/R/win-library/4.2/Rcpp/include",
+        "-DEIGEN_DONT_VECTORIZE",
+        "-nostdinc",
+        "-include",
+        "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/.Rproj.user/C99ACB9D/compilation-database/mingw64/cpp-definitions.h"
+    ],
+    "pch": "Rcpp",
+    "is_cpp": true,
+    "hash": "1715955378",
+    "compiler": "17486434899767519736",
+    "rversion": "4.2.3",
+    "dbversion": 4
+}

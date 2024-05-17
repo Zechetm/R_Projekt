@@ -1,0 +1,106 @@
+#include <iostream>
+#include "Series.hpp"
+#include "FilePreprocesor.hpp"
+#include <fstream>
+#include <Rcpp.h>
+
+Series InitSeries(const std::string& path, const std::vector<std::string>& columns, const int& range, const std::string& FitType="None") {
+	
+	//init check
+	if (range <= 0) {
+		std::cerr << "Invalid range (" << range << ")" << std::endl;
+		return Series();
+	}
+	if (columns.size() == 0){
+		std::cerr << "Columns vector is empty" << std::endl;
+		return Series();
+
+	}
+	std::map<std::string, int>* reference = new std::map<std::string, int>;
+	(*reference)["Open"] = 4;
+	(*reference)["High"] = 5;
+	(*reference)["Low"] = 6;
+	(*reference)["Close"] = 7;
+	(*reference)["Volume"] = 9;
+
+	//check for valid column names
+	for (std::string test : columns) {
+		if (reference->find(test) == reference->end()) {
+			std::cerr << "Invalid column argument" << std::endl;
+			return Series();
+		}
+	}
+	delete reference;
+
+	//IF VECTOR EMPTY PRINT ERROR
+	std::vector<std::string>lines = FP::FilePreprocesor::Init(path,range); 
+	if (lines.empty()) {
+		std::cerr << "INVALID PATH TO FILE OR FILE IS EMPTY" << std::endl;
+		return Series();
+	}
+	
+	std::vector<std::string> date;
+	std::vector<std::vector<float>> table;
+	
+
+	FP::FilePreprocesor::FigureData(columns, lines, &date, &table);
+	if (date.empty() || table.empty()) {
+		std::cerr << "ERROR: EMPTY FRAME";
+		return Series();
+	}
+
+	if (FitType != "None"){
+		if (FitType == "Mean")
+			FP::MeanFit::FitByMean(&date, &table);
+		else
+			std::cout << "Invalid fit type. Choosing None type instead" << std::endl;
+	}
+	Series f;
+	f.InsertDate(date);
+	f.InsertTable(table);
+	
+	return f;
+}
+
+
+Series Init(const std::string& path, const std::string& method, const std::vector<std::string>& column,
+		const int& range = 90, const std::string& fittype = "None") {
+
+		Series init_series = InitSeries(path, column, range, "None");
+
+		if (init_series.empty()) {
+			std::cerr << "undefined behavior" << std::endl;
+		
+		}
+		return Series();
+}
+// [[Rcpp::export]]
+void ProjectVersion() {
+  std::cout << "Version: 1.0" << std::endl;
+}
+
+
+using namespace Rcpp;
+// [[Rcpp::export]]
+DataFrame InitDF(const std::string& path,const std::vector<std::string>& columns, const int& range, const std::string& FitType="None") {
+  
+  Series cSeries = InitSeries(path,columns,range,FitType);
+
+  List Rcolumns;
+  std::vector<std::string> F=cSeries.getAllDate();
+
+  Rcolumns["Date"] = F;
+  
+  std::vector<float> buf;
+  for(int i = 0; i<columns.size(); i++){
+    for(int j = 0; j<cSeries.size(); j++)
+      buf.push_back(cSeries.getData(j)[i]);
+    Rcolumns[columns[i]] = buf;
+    
+    buf.clear();
+  }
+
+  DataFrame df(Rcolumns);
+  return df;
+
+}

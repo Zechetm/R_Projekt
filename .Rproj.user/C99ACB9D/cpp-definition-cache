@@ -1,0 +1,247 @@
+[
+    {
+        "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+        "file_last_write": 1715952857.0,
+        "definitions": [
+            {
+                "usr": "c:@N@FP@S@FilePreprocesor@F@Init#&1I#S0_#",
+                "kind": 7,
+                "parent_name": "FilePreprocesor",
+                "name": "Init(const int &, const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+                "line": 4,
+                "column": 47,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@FilePreprocesor@F@FindNth#&1I#&1S#",
+                "kind": 7,
+                "parent_name": "FilePreprocesor",
+                "name": "FindNth(const int &, const short &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+                "line": 26,
+                "column": 26,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@FilePreprocesor@F@FigureData#&1I#S0_#*I#I#",
+                "kind": 7,
+                "parent_name": "FilePreprocesor",
+                "name": "FigureData(const int &, const int &, int *, int)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+                "line": 35,
+                "column": 27,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@Fit@F@EqualDates#&1I#S0_#",
+                "kind": 7,
+                "parent_name": "Fit",
+                "name": "EqualDates(const int &, const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+                "line": 86,
+                "column": 15,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@Fit@F@toDate#&1I#",
+                "kind": 7,
+                "parent_name": "Fit",
+                "name": "toDate(const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+                "line": 91,
+                "column": 18,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@Fit@F@toString#&1I#",
+                "kind": 7,
+                "parent_name": "Fit",
+                "name": "toString(const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.cpp",
+                "line": 101,
+                "column": 22,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.hpp",
+        "file_last_write": 1714925022.0,
+        "definitions": [
+            {
+                "usr": "c:@N@FP@S@FilePreprocesor",
+                "kind": 2,
+                "parent_name": "",
+                "name": "FilePreprocesor",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.hpp",
+                "line": 14,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@Fit",
+                "kind": 2,
+                "parent_name": "",
+                "name": "Fit",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.hpp",
+                "line": 22,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@N@FP@S@MeanFit",
+                "kind": 2,
+                "parent_name": "",
+                "name": "MeanFit",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/FilePreprocesor.hpp",
+                "line": 33,
+                "column": 8,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+        "file_last_write": 1715947114.0,
+        "definitions": [
+            {
+                "usr": "c:@S@Series@F@InsertDate#&1I#",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "InsertDate(const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 5,
+                "column": 14,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@Series@F@InsertTable#1I#",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "InsertTable(const int)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 10,
+                "column": 14,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@Series@F@empty#1",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "empty",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 25,
+                "column": 14,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@Series@F@size#1",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "size",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 28,
+                "column": 13,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@Series@F@getDate#&1I#1",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "getDate(const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 32,
+                "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@Series@F@getData#&1I#1",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "getData(const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 36,
+                "column": 28,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@Series@F@getAllDate#1",
+                "kind": 7,
+                "parent_name": "Series",
+                "name": "getAllDate",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.cpp",
+                "line": 40,
+                "column": 34,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.hpp",
+        "file_last_write": 1715944623.0,
+        "definitions": [
+            {
+                "usr": "c:@S@Series",
+                "kind": 2,
+                "parent_name": "",
+                "name": "Series",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/Series.hpp",
+                "line": 6,
+                "column": 7,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/main.cpp",
+        "file_last_write": 1715954682.0,
+        "definitions": [
+            {
+                "usr": "c:@F@InitSeries#&1I#S0_#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "InitSeries(const int &, const int &, const int &, const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/main.cpp",
+                "line": 7,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@Init#&1I#S0_#S0_#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "Init(const int &, const int &, const int &, const int &, const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/main.cpp",
+                "line": 66,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@ProjectVersion#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "ProjectVersion",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/main.cpp",
+                "line": 78,
+                "column": 6,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@InitDF#&1I#S0_#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "InitDF(const int &, const int &, const int &, const int &)",
+                "file": "C:/Users/olekw/Desktop/ror1/projekt/rorProjekt/src/main.cpp",
+                "line": 85,
+                "column": 11,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    }
+]

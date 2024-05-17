@@ -1,0 +1,5 @@
+importFrom(Rcpp, evalCpp)
+export(ProjectVersion)
+export(InitDF)
+export(StockInit)
+useDynLib(rorProjekt, .registration=TRUE)
