@@ -26,7 +26,7 @@ Series InitSeries(const std::string& path, const std::vector<std::string>& colum
 	//check for valid column names
 	for (std::string test : columns) {
 		if (reference->find(test) == reference->end()) {
-			std::cerr << "Invalid column argument" << std::endl;
+			std::cerr << "Invalid column argument. Try: Open, High, Low, Close, Volume" << std::endl;
 			return Series();
 		}
 	}
@@ -45,7 +45,7 @@ Series InitSeries(const std::string& path, const std::vector<std::string>& colum
 
 	FP::FilePreprocesor::FigureData(columns, lines, &date, &table);
 	if (date.empty() || table.empty()) {
-		std::cerr << "ERROR: EMPTY FRAME";
+		std::cerr << "Undefined behavior: empty frame in FP::FilePreprocesor::FigureData";
 		return Series();
 	}
 
@@ -85,7 +85,9 @@ using namespace Rcpp;
 DataFrame InitDF(const std::string& path,const std::vector<std::string>& columns, const int& range, const std::string& FitType="None") {
   
   Series cSeries = InitSeries(path,columns,range,FitType);
-
+  if(cSeries.empty()){
+    return DataFrame();
+  }
   List Rcolumns;
   std::vector<std::string> F=cSeries.getAllDate();
 
