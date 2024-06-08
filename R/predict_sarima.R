@@ -11,8 +11,11 @@ library(forecast)
 #' predict_sarima(stock_prices)
 #' @import forecast
 predict_sarima<-function(stock_prices, freq_){
+  # Przygotowanie danych treningowych
   train_data <- ts(stock_prices[1:90], frequency = freq_)
+  # Dopasowanie modelu
   sarima_model  <- auto.arima(train_data, seasonal=T)
+  # Prognozowanie przyszłych wartości (następne 10 dni)
   forcasted <- forecast(sarima_model, h=10)$mean
   return(as.numeric(forcasted))
 }

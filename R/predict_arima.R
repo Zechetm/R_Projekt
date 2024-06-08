@@ -9,7 +9,7 @@ library(forecast)
 #' @examples
 #' stock_prices <- c(1.78, 1.7, 1.69, 1.34, 1.05, 1.03, 1, 0.93, 0.94, 1)
 #' predict_arima(stock_prices)
-#' @import forecast
+ # #' @import forecast
 predict_arima <- function(stock_prices) {
   
   # Przygotowanie danych treningowych (pierwsze 90 elementów)
