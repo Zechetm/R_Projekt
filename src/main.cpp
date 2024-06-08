@@ -4,8 +4,7 @@
 #include <fstream>
 #include <Rcpp.h>
 
-Series InitSeries(const std::string& path, const std::vector<std::string>& columns, const int& range, const std::string& FitType="None") {
-	
+Series InitSeries(const std::string& path, const std::vector<std::string>& columns, const int& range) {
 	//init check
 	if (range <= 0) {
 		std::cerr << "Invalid range (" << range << ")" << std::endl;
@@ -48,13 +47,6 @@ Series InitSeries(const std::string& path, const std::vector<std::string>& colum
 		std::cerr << "Undefined behavior: empty frame in FP::FilePreprocesor::FigureData";
 		return Series();
 	}
-
-	if (FitType != "None"){
-		if (FitType == "Mean")
-			FP::MeanFit::FitByMean(&date, &table);
-		else
-			std::cout << "Invalid fit type. Choosing None type instead" << std::endl;
-	}
 	Series f;
 	f.InsertDate(date);
 	f.InsertTable(table);
@@ -64,9 +56,9 @@ Series InitSeries(const std::string& path, const std::vector<std::string>& colum
 
 
 Series Init(const std::string& path, const std::string& method, const std::vector<std::string>& column,
-		const int& range = 90, const std::string& fittype = "None") {
+		const int& range = 90) {
 
-		Series init_series = InitSeries(path, column, range, "None");
+		Series init_series = InitSeries(path, column, range);
 
 		if (init_series.empty()) {
 			std::cerr << "undefined behavior" << std::endl;
@@ -76,15 +68,15 @@ Series Init(const std::string& path, const std::string& method, const std::vecto
 }
 // [[Rcpp::export]]
 void ProjectVersion() {
-  std::cout << "Version: 1.0" << std::endl;
+  std::cout << "Version: 1.3" << std::endl;
 }
 
 
 using namespace Rcpp;
 // [[Rcpp::export]]
-DataFrame InitDF(const std::string& path,const std::vector<std::string>& columns, const int& range, const std::string& FitType="None") {
+DataFrame InitDF(const std::string& path,const std::vector<std::string>& columns, const int& range) {
   
-  Series cSeries = InitSeries(path,columns,range,FitType);
+  Series cSeries = InitSeries(path,columns,range);
   if(cSeries.empty()){
     return DataFrame();
   }

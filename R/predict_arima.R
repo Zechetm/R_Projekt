@@ -1,3 +1,4 @@
+library(forecast)
 #' Prognozowanie cen akcji za pomocą ARIMA
 #'
 #' Ta funkcja wykorzystuje model ARIMA do przewidywania przyszłych cen akcji na podstawie danych historycznych.
@@ -9,7 +10,6 @@
 #' predict_arima(stock_prices)
 #' @import forecast
 predict_arima <- function(stock_prices) {
-  library(forecast)
   train_data <- ts(stock_prices[1:90])
   arima_model <- auto.arima(train_data)
   forecasted_values <- forecast(arima_model, h=10)$mean

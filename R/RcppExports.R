@@ -5,7 +5,7 @@ ProjectVersion <- function() {
     invisible(.Call(`_StockInit_ProjectVersion`))
 }
 
-InitDF <- function(path, columns, range, FitType = "None") {
-    .Call(`_StockInit_InitDF`, path, columns, range, FitType)
+InitDF <- function(path, columns, range) {
+    .Call(`_StockInit_InitDF`, path, columns, range)
 }
 

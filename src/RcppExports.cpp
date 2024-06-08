@@ -20,23 +20,22 @@ BEGIN_RCPP
 END_RCPP
 }
 // InitDF
-DataFrame InitDF(const std::string& path, const std::vector<std::string>& columns, const int& range, const std::string& FitType);
-RcppExport SEXP _StockInit_InitDF(SEXP pathSEXP, SEXP columnsSEXP, SEXP rangeSEXP, SEXP FitTypeSEXP) {
+DataFrame InitDF(const std::string& path, const std::vector<std::string>& columns, const int& range);
+RcppExport SEXP _StockInit_InitDF(SEXP pathSEXP, SEXP columnsSEXP, SEXP rangeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const std::string& >::type path(pathSEXP);
     Rcpp::traits::input_parameter< const std::vector<std::string>& >::type columns(columnsSEXP);
     Rcpp::traits::input_parameter< const int& >::type range(rangeSEXP);
-    Rcpp::traits::input_parameter< const std::string& >::type FitType(FitTypeSEXP);
-    rcpp_result_gen = Rcpp::wrap(InitDF(path, columns, range, FitType));
+    rcpp_result_gen = Rcpp::wrap(InitDF(path, columns, range));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_StockInit_ProjectVersion", (DL_FUNC) &_StockInit_ProjectVersion, 0},
-    {"_StockInit_InitDF", (DL_FUNC) &_StockInit_InitDF, 4},
+    {"_StockInit_InitDF", (DL_FUNC) &_StockInit_InitDF, 3},
     {NULL, NULL, 0}
 };
 

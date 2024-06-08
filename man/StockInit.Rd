@@ -4,7 +4,7 @@
 \alias{StockInit}
 \title{Funkcja wczytuje do programu dane giełdowe z podanego pliku}
 \usage{
-StockInit(path, cols, range = 90)
+StockInit(path, cols, range_ = 90)
 }
 \arguments{
 \item{path(string), }{cols(lista stringów), range( x ostatnich dni)}
