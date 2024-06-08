@@ -30,53 +30,30 @@ plot_predictions <- function(model, stock_prices) {
   source("predict_prophet.R")
   source("predict_lm.R")
   source("predict_ma.R")
+  source("calculate_mse.R")
+  source("normalize_mse.R")
+  source("plot_stock_predictions.R")
   
   train_data <- stock_prices[1:90]
   test_data <- stock_prices[91:100]
   
-  if (model == "knn") {
-    predicted_prices <- predict_knn(stock_prices)
-  } else if (model == "arima") {
-    predicted_prices <- predict_arima(stock_prices)
-  } else if (model == "prophet") {
-    predicted_prices <- predict_prophet(stock_prices)
-  } else if (model == "lm") {
-    predicted_prices <- predict_lm(stock_prices)
-  } else if (model == "ma") {
-    predicted_prices <- predict_ma(stock_prices)
-  } else {
-    stop("Model not supported")
-  }
+  predicted_prices <- switch(model,
+                             knn = predict_knn(stock_prices),
+                             arima = predict_arima(stock_prices),
+                             prophet = predict_prophet(stock_prices),
+                             lm = predict_lm(stock_prices),
+                             ma = predict_ma(stock_prices),
+                             stop("Model not supported"))
   
   # Dane do regresji liniowej
   fit_indices <- 90:110
   fit <- lm(stock_prices[fit_indices] ~ fit_indices)
-  
-  # Generowanie indeksów dla przewidywań (91-100)
-  predicted_indices <- 91:100
-  
-  # Rysowanie wykresu
-  plot(stock_prices, type = "o", col = "blue", xlim = c(1, 110), ylim = c(0.3, 2), xlab = "Dni", ylab = "Cena Akcji", main = "Rzeczywiste vs Przewidywane Ceny Akcji")
-  rect(90, par("usr")[3], 110, par("usr")[4], col = "gray90", border = NA)
-  lines(stock_prices, type = "o", col = "blue")
-  lines(predicted_indices, predicted_prices, col = "red", type = "o")
-  abline(fit, col = "darkgray") # Linia regresji liniowej
-  axis(1, at = seq(1, 110, by = 5), labels = seq(1, 110, by = 5), cex.axis = 0.8)
-  
-  # Obliczanie błędów
   predicted_prices_regression <- predict(fit, newdata = data.frame(fit_indices = 91:100))
   
-  mse_model <- sum((stock_prices[91:100] - predicted_prices)^2) / 10
-  mse_regression <- sum((stock_prices[91:100] - predicted_prices_regression)^2) / 10
+  # Obliczanie i wyświetlanie błędów
+  mse_model_normalized <- normalize_mse(stock_prices[91:100], predicted_prices, predicted_prices_regression)
+  mse_regression_normalized <- normalize_mse(stock_prices[91:100], predicted_prices_regression, predicted_prices)
   
-  # Normalizacja błędów
-  mse_model_normalized <- mse_model / max(mse_model, mse_regression)
-  mse_regression_normalized <- mse_regression / max(mse_model, mse_regression)
-  
-  # Wyświetlanie błędów na wykresie
-  text(55, 1.8, paste("Błąd modelu:", round(mse_model_normalized, 2)), col = "red", pos = 4)
-  text(55, 1.7, paste("Błąd regresji:", round(mse_regression_normalized, 2)), col = "darkgray", pos = 4)
-  
-  # Legenda
-  legend("topright", legend=c("Rzeczywiste", "Przewidywane", "Regresja liniowa"), col=c("blue", "red", "darkgray"), lty=1, cex=0.8)
+  # Rysowanie wykresu
+  plot_stock_predictions(stock_prices, predicted_prices, predicted_prices_regression, mse_model_normalized, mse_regression_normalized)
 }

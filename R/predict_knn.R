@@ -1,3 +1,5 @@
+library(class)
+
 #' Prognozowanie cen akcji za pomocą K-Nearest Neighbors (KNN)
 #'
 #' Ta funkcja wykorzystuje algorytm K-Nearest Neighbors (KNN) do przewidywania przyszłych cen akcji na podstawie danych historycznych.
@@ -9,9 +11,23 @@
 #' predict_knn(stock_prices)
 #' @import class
 predict_knn <- function(stock_prices) {
-  library(class)
+  
+  # Przygotowanie danych treningowych (pierwsze 90 elementów)
   train_data <- stock_prices[1:90]
+  
+  # Przygotowanie danych testowych (ostatnie 10 elementów, zduplikowanych dla KNN)
   test_sample <- matrix(rep(tail(train_data, 10), 2), ncol = 1, byrow = TRUE)
-  predicted_values <- knn(train = matrix(train_data, ncol = 1), test = test_sample, cl = as.factor(train_data), k = 5)
-  return(as.numeric(attributes(predicted_values)$levels[predicted_values][1:10]))
+  
+  # Dopasowanie modelu KNN
+  predicted_values <- knn(
+    train = matrix(train_data, ncol = 1),  # dane treningowe w formie macierzy
+    test = test_sample,                    # dane testowe w formie macierzy
+    cl = as.factor(train_data),            # etykiety klas (w tym przypadku te same co dane treningowe)
+    k = 5                                  # liczba najbliższych sąsiadów
+  )
+  
+  # Konwersja wyników predykcji do formatu liczbowego
+  predicted_prices <- as.numeric(attributes(predicted_values)$levels[predicted_values][1:10])
+  
+  return(predicted_prices)
 }

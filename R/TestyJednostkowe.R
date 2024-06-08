@@ -1,6 +1,12 @@
 library(testthat)
 
 source("R/predict_sarima.R")
+source("R/predictGPR.R")
+source("R/predict_prophet.R")
+source("R/predict_ma.R")
+source("R/predict_lm.R")
+source("R/predict_knn.R")
+source("R/predict_arima.R")
 
 
 sample_stock<-c(0.2070, 0.2025, 0.2030, 0.2100, 0.1954, 0.1956, 0.1950, 0.1922, 0.1900, 0.1924, 0.1960, 0.1950, 0.1972, 0.1940, 0.1830, 0.1750, 0.1790, 0.1616, 0.1650, 0.1650, 
@@ -16,9 +22,38 @@ test_that("SARIMA TEST", {
 })
 
 
-source("R/predictGPR.R")
 test_that("GPR TEST", {
   expect_equal(GPR(sample_stock, 3),
                c( 0.3169425, 0.3186163, 0.3202453, 0.3218279, 0.3233624, 0.3248470, 0.3262800, 0.3276598, 0.3289846, 0.3302528),
                tolerance = 0.01)
+})
+
+test_that("predict_prophet działa poprawnie", {
+  expect_equal(predict_prophet(sample_stock),
+               c(0.3100, 0.3110, 0.3120, 0.3130, 0.3140, 0.3150, 0.3160, 0.3170, 0.3180, 0.3190),
+               tolerance = 0.02)
+})
+
+test_that("predict_ma działa poprawnie", {
+  expect_equal(predict_ma(sample_stock),
+               c(0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080),
+               tolerance = 0.02)
+})
+
+test_that("predict_lm działa poprawnie", {
+  expect_equal(predict_lm(sample_stock),
+               c(0.2957, 0.2968, 0.2979, 0.2990, 0.3001, 0.3012, 0.3023, 0.3034, 0.3045, 0.3056),
+               tolerance = 0.02)
+})
+
+test_that("predict_knn działa poprawnie", {
+  expect_equal(predict_knn(sample_stock),
+               c(0.3080, 0.3070, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080, 0.3080),
+               tolerance = 0.02)
+})
+
+test_that("predict_arima działa poprawnie", {
+  expect_equal(predict_arima(sample_stock),
+               c(0.3125, 0.3126, 0.3127, 0.3128, 0.3129, 0.3130, 0.3131, 0.3132, 0.3133, 0.3134),
+               tolerance = 0.02)
 })
