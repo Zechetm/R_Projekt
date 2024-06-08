@@ -1,4 +1,5 @@
 library(roxygen2)
+library(forecast)
 #' Prognozowanie cen akcji za pomocą SARIMA
 #'
 #' Ta funkcja wykorzystuje model SARIMA do przewidywania przyszłych cen akcji na podstawie danych historycznych.
@@ -12,6 +13,7 @@ library(roxygen2)
 predict_sarima<-function(stock_prices, freq_){
   train_data <- ts(stock_prices[1:90], frequency = freq_)
   sarima_model  <- auto.arima(train_data, seasonal=T)
-  forecasted_values <- forecast(sarima_model, h=10)$mean
-  return(as.numeric(forecasted_values))
+  forcasted <- forecast(sarima_model, h=10)$mean
+  return(as.numeric(forcasted))
 }
+
