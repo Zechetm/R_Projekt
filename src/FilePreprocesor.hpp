@@ -15,6 +15,7 @@ namespace FP {
 		static std::vector<std::string> Init(const std::string&, const int&);
 		static void FigureData(const std::vector<std::string>&,const std::vector<std::string>&, std::vector<std::string>*, std::vector<std::vector<float>>*);
 		static int FindNth(const std::string&, const short int&);
+		static bool ValidColNames(const std::vector<std::string>&);
 	};
 
 }

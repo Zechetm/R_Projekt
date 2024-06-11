@@ -15,21 +15,14 @@ Series InitSeries(const std::string& path, const std::vector<std::string>& colum
 		return Series();
 
 	}
-	std::map<std::string, int>* reference = new std::map<std::string, int>;
-	(*reference)["Open"] = 4;
-	(*reference)["High"] = 5;
-	(*reference)["Low"] = 6;
-	(*reference)["Close"] = 7;
-	(*reference)["Volume"] = 9;
+
 
 	//check for valid column names
-	for (std::string test : columns) {
-		if (reference->find(test) == reference->end()) {
-			std::cerr << "Invalid column argument. Try: Open, High, Low, Close, Volume" << std::endl;
-			return Series();
-		}
+	if (!(FP::FilePreprocesor::ValidColNames(columns))) {
+	  std::cerr<< "Invalid column argument. Try: Open, High, Low, Close, Volume" << std::endl;
+	  return Series();
 	}
-	delete reference;
+
 
 	//IF VECTOR EMPTY PRINT ERROR
 	std::vector<std::string>lines = FP::FilePreprocesor::Init(path,range); 

@@ -82,3 +82,18 @@ void FP::FilePreprocesor::FigureData(const std::vector<std::string>& columns,con
 	}
 
 }
+
+bool FP::FilePreprocesor::ValidColNames(const std::vector<std::string>& vec) {
+  std::map<std::string, int> reference;
+  reference["Open"] = 4;
+  reference["High"] = 5;
+  reference["Low"] = 6;
+  reference["Close"] = 7;
+  reference["Volume"] = 9;
+  for (std::string test : vec) {
+    if (reference.find(test) == reference.end()) {
+      return false;
+    }
+  }
+  return true;
+}
