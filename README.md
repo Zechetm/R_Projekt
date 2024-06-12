@@ -9,10 +9,10 @@ Każdy model predykcyjny porównujemy ze zwykłą regresją liniową po czym wyl
 Aby zainstalować pakiet StockInit, musisz mieć zainstalowane R oraz devtools. Możesz zainstalować pakiet bezpośrednio z GitHub:
 
 
-# Install devtools if not already installed
+### Install devtools if not already installed
 install.packages("devtools")
 
-# Install StockInit from GitHub
+### Install StockInit from GitHub
 devtools::install_github("Zechetm/R_Projekt")
 
 ## Dane
@@ -59,7 +59,7 @@ Rysowanie wykresu rzeczywistych i przewidywanych cen akcji oraz wyświetlanie b�
 
 
 ##Licencja
-StockInit jest licencjonowany na licencji GPL (>= 2). Więcej informacji znajdziesz w pliku.
+StockInit jest licencjonowany na licencji GPL (>= 2)
 
 ## Autorzy
 Aleksander Walis
