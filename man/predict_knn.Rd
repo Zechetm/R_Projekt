@@ -7,7 +7,8 @@
 predict_knn(stock_prices)
 }
 \arguments{
-\item{stock_prices}{Wektor liczbowy zawierający ceny akcji, z których pierwsze 90 elementów jest używane do treningu modelu, a ostatnie 10 do testowania.}
+\item{(stock_prices, }{prange) Wektor liczbowy zawierający ceny akcji, z których pierwsze 90 elementów jest używane do treningu modelu, a ostatnie 10 do testowania.
+oraz zasięg}
 }
 \value{
 Wektor liczbowy zawierający przewidywane ceny akcji dla ostatnich 10 dni.

@@ -4,7 +4,7 @@
 \alias{predict_arima}
 \title{Prognozowanie cen akcji za pomocą ARIMA}
 \usage{
-predict_arima(stock_prices)
+predict_arima(stock_prices, prange = 90)
 }
 \arguments{
 \item{stock_prices}{Wektor liczbowy zawierający ceny akcji, z których pierwsze 90 elementów jest używane do treningu modelu, a ostatnie 10 do testowania.}

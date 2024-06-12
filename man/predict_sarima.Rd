@@ -4,10 +4,11 @@
 \alias{predict_sarima}
 \title{Prognozowanie cen akcji za pomocą SARIMA}
 \usage{
-predict_sarima(stock_prices, freq_)
+predict_sarima(stock_prices, freq_, p_range = 90)
 }
 \arguments{
-\item{stock_prices}{Wektor liczbowy zawierający ceny akcji, z których pierwsze 90 elementów jest używane do treningu modelu, a ostatnie 10 do testowania.}
+\item{(stock_prices, }{prange) Wektor liczbowy zawierający ceny akcji, z których pierwsze n elementów jest używane do treningu modelu, a ostatnie 10 do testowania
+oraz wybrany zasięg}
 }
 \value{
 Wektor liczbowy zawierający przewidywane ceny akcji dla ostatnich 10 dni.
