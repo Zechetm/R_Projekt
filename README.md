@@ -59,7 +59,7 @@ Rysowanie wykresu rzeczywistych i przewidywanych cen akcji oraz wyświetlanie b�
 
 
 ##Licencja
-StockInit jest licencjonowany na licencji GPL (>= 2). Więcej informacji znajdziesz w pliku LICENSE.
+StockInit jest licencjonowany na licencji GPL (>= 2). Więcej informacji znajdziesz w pliku.
 
 ## Autorzy
 Aleksander Walis
