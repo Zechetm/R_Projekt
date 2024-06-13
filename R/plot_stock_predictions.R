@@ -11,12 +11,12 @@ plot_stock_predictions <- function(stock_prices, predicted_prices, predicted_pri
   fit_indices <- 90:110
   predicted_indices <- 91:100
   
-  plot(stock_prices, type = "o", col = "blue", xlim = c(1, 110), ylim = c(0.3, 2), xlab = "Dni", ylab = "Cena Akcji", main = "Rzeczywiste vs Przewidywane Ceny Akcji")
+  plot(stock_prices, type = "o", col = "blue", xlim = c(1, 110), xlab = "Dni", ylab = "Cena Akcji", main = "Rzeczywiste vs Przewidywane Ceny Akcji")
   rect(90, par("usr")[3], 110, par("usr")[4], col = "gray90", border = NA)
   lines(stock_prices, type = "o", col = "blue")
   lines(predicted_indices, predicted_prices, col = "red", type = "o")
   lines(predicted_indices, predicted_prices_regression, col = "darkgray", type = "o")
-  abline(lm(stock_prices[fit_indices] ~ fit_indices), col = "darkgray") # Linia regresji liniowej
+  abline(lm(stock_prices[fit_indices] ~ fit_indices), col = "black") # Linia regresji liniowej
   axis(1, at = seq(1, 110, by = 5), labels = seq(1, 110, by = 5), cex.axis = 0.8)
   
   # Wyświetlanie błędów na wykresie
